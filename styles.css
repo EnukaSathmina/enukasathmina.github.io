@@ -639,3 +639,15 @@ img {
     display: none;
   }
 }
+
+.button.github {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #5aa9ff;
+  color: white;
+}
+
+.button.github:hover {
+  background: #3d8df5;
+}
