@@ -644,10 +644,10 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #5aa9ff;
+  background: #4da6ff; /* mid light blue */
   color: white;
 }
 
 .button.github:hover {
-  background: #3d8df5;
+  background: #3399ff; /* slightly darker on hover */
 }
