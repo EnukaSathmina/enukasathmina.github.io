@@ -26,13 +26,18 @@
 
   <main>
     <section id="home" class="hero">
-      <div class="container hero-content">
-        <p class="eyebrow">Hello, I'm</p>
-        <h1>Enuka Sathmina</h1>
-        <p class="hero-copy">A passionate developer building polished web experiences with modern design, performance, and clear user interaction.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#projects">View work</a>
-          <a class="button secondary" href="#contact">Get in touch</a>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow">Hello, I'm</p>
+          <h1>Enuka Sathmina</h1>
+          <p class="hero-copy">A passionate developer building polished web experiences with modern design, performance, and clear user interaction.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">View work</a>
+            <a class="button secondary" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="images/img.jpg" alt="Photo of Enuka Sathmina">
         </div>
       </div>
     </section>
@@ -53,22 +58,92 @@
 
     <section id="projects" class="section projects-section">
       <div class="container">
-        <h2>Featured Projects</h2>
-        <div class="grid-three">
+        <h2>Projects</h2>
+        <div class="projects-grid">
           <article class="project-card">
-            <h3>Personal Portfolio</h3>
-            <p>A responsive portfolio website to showcase work, background, and contact details.</p>
-            <a href="#contact">Learn more</a>
+            <div class="project-image">
+              <img src="images/examind.png" alt="Examind - Learning Platform">
+            </div>
+            <div class="project-content">
+              <h3>Examind</h3>
+              <p>An interactive online learning and community platform designed to support Sri Lankan A/I. students with AI-powered assistance and gamified learning.</p>
+              <div class="project-tech">
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">React.js</span>
+                <span class="tech-tag">Tailwind CSS</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Express.js</span>
+                <span class="tech-tag">PostgreSQL</span>
+              </div>
+              <a href="#" class="github-link" title="View on GitHub">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+              </a>
+            </div>
           </article>
           <article class="project-card">
-            <h3>Web App Concept</h3>
-            <p>A clean UI prototype for a task tracking or note-taking web application.</p>
-            <a href="#contact">See details</a>
+            <div class="project-image">
+              <img src="images/farm-management.png" alt="Farm Management System">
+            </div>
+            <div class="project-content">
+              <h3>Farm Management System</h3>
+              <p>A full-stack application for livestock and farm operations management developed for Sabaragamuwa University.</p>
+              <div class="project-tech">
+                <span class="tech-tag">Laravel</span>
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">Bootstrap</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+              <a href="#" class="github-link" title="View on GitHub">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+              </a>
+            </div>
           </article>
           <article class="project-card">
-            <h3>UI / UX Case Study</h3>
-            <p>Design-focused work that highlights user-centered interfaces and modern aesthetics.</p>
-            <a href="#contact">Explore</a>
+            <div class="project-image">
+              <img src="images/eterna-care.png" alt="Eterna Care">
+            </div>
+            <div class="project-content">
+              <h3>Eterna Care</h3>
+              <p>Crematorium booking and management system with reservations, payments and admin dashboard.</p>
+              <div class="project-tech">
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+              </div>
+              <a href="#" class="github-link" title="View on GitHub">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+              </a>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-image">
+              <img src="images/mer-florist.png" alt="Mer Florist Website">
+            </div>
+            <div class="project-content">
+              <h3>Mer Florist Website</h3>
+              <p>Responsive e-commerce website for a florist with product catalog, authentication, and admin dashboard (in progress).</p>
+              <div class="project-tech">
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+              <a href="#" class="github-link" title="View on GitHub">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+              </a>
+            </div>
           </article>
         </div>
       </div>
@@ -77,13 +152,52 @@
     <section id="skills" class="section skills-section">
       <div class="container">
         <h2>Skills</h2>
-        <div class="skills-grid">
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>JavaScript</span>
-          <span>Responsive design</span>
-          <span>Web performance</span>
-          <span>Git & GitHub</span>
+        <div class="skills-grid-table">
+          <div class="skills-header">
+            <div class="skills-header-left">Category</div>
+            <div class="skills-header-right">Tools & Languages</div>
+          </div>
+          <div class="skills-content">
+            <div class="skill-row-grid">
+              <div class="skill-category">Languages</div>
+              <div class="skill-badges-row">
+                <span class="skill-badge python">Python</span>
+                <span class="skill-badge java">Java</span>
+                <span class="skill-badge csharp">C#</span>
+                <span class="skill-badge cpp">C++</span>
+                <span class="skill-badge c">C</span>
+                <span class="skill-badge javascript">JavaScript</span>
+              </div>
+            </div>
+            <div class="skill-row-grid">
+              <div class="skill-category">AI & Backend</div>
+              <div class="skill-badges-row">
+                <span class="skill-badge tensorflow">TensorFlow</span>
+                <span class="skill-badge fastapi">FastAPI</span>
+                <span class="skill-badge mongodb">MongoDB</span>
+                <span class="skill-badge mysql">MySQL</span>
+              </div>
+            </div>
+            <div class="skill-row-grid">
+              <div class="skill-category">Frontend/Mobile</div>
+              <div class="skill-badges-row">
+                <span class="skill-badge react">React</span>
+                <span class="skill-badge flutter">Flutter</span>
+                <span class="skill-badge figma">Figma</span>
+                <span class="skill-badge illustrator">Illustrator</span>
+              </div>
+            </div>
+            <div class="skill-row-grid">
+              <div class="skill-category">Development & Fun</div>
+              <div class="skill-badges-row">
+                <span class="skill-badge git">Git</span>
+                <span class="skill-badge github">GitHub</span>
+                <span class="skill-badge unreal">Unreal Engine</span>
+                <span class="skill-badge arduino">Arduino</span>
+                <span class="skill-badge riot">Riot Games</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
