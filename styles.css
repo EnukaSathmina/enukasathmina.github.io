@@ -101,60 +101,78 @@ img {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(15, 23, 42, 0.96);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.98) 0%, rgba(15, 23, 42, 0.95) 100%);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(96, 165, 250, 0.15);
+  box-shadow: 0 8px 32px rgba(96, 165, 250, 0.08);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 0;
+  gap: 2rem;
+  padding: 1.25rem 0;
 }
 
 .brand {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-decoration: none;
-  color: var(--text);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-strong) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.4s ease;
+}
+
+.brand:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.4));
 }
 
 .site-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(96, 165, 250, 0.12);
+  backdrop-filter: blur(12px);
 }
 
 .site-nav a {
   color: var(--muted);
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   position: relative;
+  font-weight: 500;
 }
 
 .site-nav a:hover,
 .site-nav a:focus-visible {
   color: var(--primary);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 .site-nav a::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: -6px;
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--primary);
-  transition: width 0.3s ease;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-strong) 100%);
+  transition: width 0.4s ease;
+  border-radius: 999px;
 }
 
 .site-nav a:hover::after,
 .site-nav a:focus-visible::after {
   width: 100%;
+  box-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
 }
 
 .nav-toggle {
@@ -343,6 +361,13 @@ img {
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.projects-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  animation: fadeIn 0.8s ease-out;
 }
 
 @media (max-width: 860px) {
@@ -637,6 +662,21 @@ img {
 
   .nav-toggle {
     display: none;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hero-content {
+    order: 2;
+  }
+
+  .hero-image {
+    max-width: 220px;
+    order: 1;
+    margin: 0 auto 1rem;
   }
 }
 
