@@ -552,48 +552,69 @@ img {
 .skill-badges-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem;
+  gap: 1rem;
   padding: 1.5rem 1.25rem;
 }
 
 .skill-badge {
-  display: inline-flex;
+  width: 96px;
+  min-width: 96px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.95rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #fff;
-  white-space: nowrap;
-  transition: all 0.3s ease;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 0.9rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  box-shadow: inset 0 0 0 1px rgba(96, 165, 250, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   animation: fadeIn 0.5s ease-out;
+  text-align: center;
 }
 
 .skill-badge:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18), inset 0 0 0 1px rgba(96, 165, 250, 0.12);
 }
 
-.skill-badge.python { background: linear-gradient(135deg, #3776ab 0%, #2d5aa0 100%); }
-.skill-badge.java { background: linear-gradient(135deg, #ee7722 0%, #dd6611 100%); }
-.skill-badge.csharp { background: linear-gradient(135deg, #23c4a8 0%, #1db599 100%); }
-.skill-badge.cpp { background: linear-gradient(135deg, #00599c 0%, #004a8a 100%); }
-.skill-badge.c { background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%); }
-.skill-badge.javascript { background: linear-gradient(135deg, #f7df1e 0%, #e8cc0e 100%); color: #000; }
-.skill-badge.tensorflow { background: linear-gradient(135deg, #ff6b35 0%, #dd5522 100%); }
-.skill-badge.fastapi { background: linear-gradient(135deg, #00a870 0%, #009560 100%); }
-.skill-badge.mongodb { background: linear-gradient(135deg, #13aa52 0%, #0d8e3f 100%); }
-.skill-badge.mysql { background: linear-gradient(135deg, #4479a1 0%, #336688 100%); }
-.skill-badge.react { background: linear-gradient(135deg, #61dafb 0%, #40a9d9 100%); color: #0c3144; font-weight: 700; }
-.skill-badge.flutter { background: linear-gradient(135deg, #0553b1 0%, #033a88 100%); }
-.skill-badge.figma { background: linear-gradient(135deg, #0acf83 0%, #08a86b 100%); }
-.skill-badge.illustrator { background: linear-gradient(135deg, #ffa412 0%, #ff9500 100%); }
-.skill-badge.git { background: linear-gradient(135deg, #f34f29 0%, #d9391a 100%); }
-.skill-badge.github { background: linear-gradient(135deg, #181717 0%, #0d0d0d 100%); }
-.skill-badge.unreal { background: linear-gradient(135deg, #0e1117 0%, #010101 100%); border: 1px solid rgba(148, 163, 184, 0.2); }
-.skill-badge.arduino { background: linear-gradient(135deg, #00979d 0%, #007a85 100%); }
-.skill-badge.riot { background: linear-gradient(135deg, #c89b3c 0%, #b08632 100%); }
+.skill-badge img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.skill-badge span {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.skill-badge.python,
+.skill-badge.java,
+.skill-badge.csharp,
+.skill-badge.cpp,
+.skill-badge.c,
+.skill-badge.javascript,
+.skill-badge.tensorflow,
+.skill-badge.fastapi,
+.skill-badge.mongodb,
+.skill-badge.mysql,
+.skill-badge.react,
+.skill-badge.flutter,
+.skill-badge.figma,
+.skill-badge.illustrator,
+.skill-badge.git,
+.skill-badge.github,
+.skill-badge.unreal,
+.skill-badge.arduino,
+.skill-badge.riot {
+  background: rgba(255, 255, 255, 0.04);
+}
 
 @media (max-width: 768px) {
   .skills-header,
