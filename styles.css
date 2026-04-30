@@ -312,7 +312,8 @@ img {
 .about-section,
 .projects-section,
 .skills-section,
-.contact-section {
+.contact-section,
+.certifications-section {
   position: relative;
 }
 
@@ -328,7 +329,8 @@ img {
 }
 
 .highlight-card,
-.contact-card {
+.contact-card,
+.cert-card {
   padding: 2rem;
   border: 1px solid var(--border);
   border-radius: 24px;
@@ -338,7 +340,8 @@ img {
 }
 
 .highlight-card:hover,
-.contact-card:hover {
+.contact-card:hover,
+.cert-card:hover {
   border-color: rgba(148, 163, 184, 0.3);
   background: rgba(255, 255, 255, 0.06);
   box-shadow: 0 8px 20px rgba(96, 165, 250, 0.1);
@@ -347,7 +350,8 @@ img {
 .projects-section h2,
 .skills-section h2,
 .about-section h2,
-.contact-section h2 {
+.contact-section h2,
+.certifications-section h2 {
   margin-bottom: 2rem;
 }
 
@@ -368,6 +372,113 @@ img {
   justify-content: center;
   margin-top: 3rem;
   animation: fadeIn 0.8s ease-out;
+}
+
+.certification-accordion {
+  display: grid;
+  gap: 1rem;
+}
+
+.cert-dropdown {
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.cert-dropdown.active {
+  border-color: rgba(96, 165, 250, 0.45);
+  background: rgba(96, 165, 250, 0.08);
+}
+
+.cert-dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.5rem 1.6rem;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(29, 78, 216, 0.18));
+  color: var(--text);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.cert-dropdown-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.cert-dropdown-subtitle {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.cert-dropdown-icon {
+  font-size: 1.35rem;
+  transition: transform 0.3s ease;
+}
+
+.cert-dropdown.active .cert-dropdown-icon {
+  transform: rotate(180deg);
+}
+
+.cert-dropdown-panel {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.35s ease, padding 0.35s ease;
+  padding: 0 1.6rem;
+}
+
+.cert-dropdown.active .cert-dropdown-panel {
+  max-height: 250px;
+  opacity: 1;
+  padding: 1rem 1.6rem 1.2rem;
+}
+
+.cert-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem 1rem;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.cert-item:hover {
+  transform: translateX(3px);
+  background: rgba(96, 165, 250, 0.08);
+}
+
+.cert-item-title {
+  font-weight: 600;
+}
+
+.cert-item-meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+.cert-item-arrow {
+  color: var(--primary);
+  font-size: 1.25rem;
+}
+
+.cert-dropdown-header:hover,
+.cert-dropdown-header:focus-visible {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.25), rgba(29, 78, 216, 0.25));
 }
 
 @media (max-width: 860px) {
