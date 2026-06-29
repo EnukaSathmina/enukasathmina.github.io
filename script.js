@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const siteNav = document.querySelector(".site-nav");
   const navLinks = document.querySelectorAll(".nav-link");
   const sections = document.querySelectorAll("main section[id]");
-  const dropdown = document.querySelector(".cert-dropdown");
-  const dropdownHeader = document.querySelector(".cert-dropdown-header");
+  const certCategories = document.querySelectorAll(".cert-category");
+  const certificatePreviews = document.querySelectorAll(".certificate-preview");
   const typedRole = document.getElementById("typed-role");
   const revealItems = document.querySelectorAll(".reveal");
   const backToTop = document.querySelector(".back-to-top");
@@ -32,10 +32,150 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  if (dropdown && dropdownHeader) {
-    dropdownHeader.addEventListener("click", function () {
-      const isActive = dropdown.classList.toggle("active");
-      dropdownHeader.setAttribute("aria-expanded", String(isActive));
+  if (certCategories.length) {
+    const syncCertPanel = function (category) {
+      const toggle = category.querySelector(".cert-category-toggle");
+      const panel = category.querySelector(".cert-category-panel");
+      const isOpen = category.classList.contains("is-open");
+
+      if (!toggle || !panel) {
+        return;
+      }
+
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      panel.style.maxHeight = isOpen ? panel.scrollHeight + "px" : "0px";
+    };
+
+    const syncAllCertPanels = function () {
+      certCategories.forEach(syncCertPanel);
+    };
+
+    certCategories.forEach(function (category) {
+      const toggle = category.querySelector(".cert-category-toggle");
+
+      syncCertPanel(category);
+
+      if (toggle) {
+        toggle.addEventListener("click", function () {
+          category.classList.toggle("is-open");
+          syncCertPanel(category);
+        });
+      }
+    });
+
+    window.addEventListener("resize", syncAllCertPanels);
+
+    document.querySelectorAll(".certificate-preview img").forEach(function (image) {
+      image.addEventListener("load", syncAllCertPanels);
+    });
+  }
+
+  if (certificatePreviews.length) {
+    const imageExtensions = ["png", "jpg", "jpeg", "webp", "gif", "avif"];
+    const pdfExtension = "pdf";
+
+    const getExtension = function (path) {
+      return path.split("?")[0].split("#")[0].split(".").pop().toLowerCase();
+    };
+
+    const getPreviewCandidates = function (certificateSrc, explicitPreview) {
+      const cleanSrc = certificateSrc.split("?")[0].split("#")[0];
+      const dotIndex = cleanSrc.lastIndexOf(".");
+      const basePath = dotIndex >= 0 ? cleanSrc.slice(0, dotIndex) : cleanSrc;
+      const candidates = [];
+
+      if (explicitPreview) {
+        candidates.push(explicitPreview);
+      }
+
+      ["png", "webp", "jpg", "jpeg"].forEach(function (extension) {
+        candidates.push(basePath + "-preview." + extension);
+      });
+
+      return candidates;
+    };
+
+    const loadImage = function (src) {
+      return new Promise(function (resolve, reject) {
+        const image = new Image();
+
+        image.onload = function () {
+          resolve(src);
+        };
+
+        image.onerror = reject;
+        image.src = src;
+      });
+    };
+
+    const syncOpenCertPanels = function () {
+      certCategories.forEach(function (category) {
+        const panel = category.querySelector(".cert-category-panel");
+        if (panel && category.classList.contains("is-open")) {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    };
+
+    const renderImagePreview = function (preview, src) {
+      const image = document.createElement("img");
+
+      image.src = src;
+      image.alt = "";
+      image.addEventListener("load", syncOpenCertPanels);
+
+      preview.classList.remove("is-pdf");
+      preview.classList.add("is-image");
+      preview.replaceChildren(image);
+      syncOpenCertPanels();
+    };
+
+    const renderPdfPreview = function (preview) {
+      preview.classList.remove("is-image");
+      preview.classList.add("is-pdf");
+      preview.replaceChildren();
+      preview.insertAdjacentHTML("beforeend", [
+        '<div class="pdf-particles" aria-hidden="true"><i></i><i></i><i></i></div>',
+        '<div class="pdf-preview-card">',
+        '<span class="pdf-document-icon"></span>',
+        '<strong>PDF</strong>',
+        '<span>Certificate File</span>',
+        '</div>'
+      ].join(""));
+      syncOpenCertPanels();
+    };
+
+    certificatePreviews.forEach(function (preview) {
+      const card = preview.closest(".certificate-card");
+      const link = card ? card.querySelector(".certificate-button") : null;
+      const certificateSrc = preview.dataset.certificateSrc || (link ? link.getAttribute("href") : "");
+      const previewSrc = preview.dataset.previewSrc || "";
+
+      if (!certificateSrc) {
+        renderPdfPreview(preview);
+        return;
+      }
+
+      const extension = getExtension(certificateSrc);
+
+      if (imageExtensions.includes(extension)) {
+        renderImagePreview(preview, certificateSrc);
+        return;
+      }
+
+      if (extension === pdfExtension) {
+        const candidates = getPreviewCandidates(certificateSrc, previewSrc);
+
+        candidates.reduce(function (chain, candidate) {
+          return chain.catch(function () {
+            return loadImage(candidate);
+          });
+        }, Promise.reject()).then(function (resolvedPreview) {
+          renderImagePreview(preview, resolvedPreview);
+        }).catch(function () {
+          renderPdfPreview(preview);
+        });
+      }
     });
   }
 
@@ -142,6 +282,7 @@ document.addEventListener("DOMContentLoaded", function () {
       setActiveLink(currentId);
     }
   };
+  
 
   window.addEventListener("scroll", handleScroll, { passive: true });
   handleScroll();
