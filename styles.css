@@ -2058,6 +2058,52 @@ h3 {
   }
 }
 
+@media (max-width: 768px) {
+  .certifications-section .container {
+    width: min(100% - 32px, 1160px);
+  }
+
+  .cert-dashboard {
+    padding: 16px;
+    border-radius: var(--radius-lg);
+  }
+
+  .cert-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .cert-stats article {
+    min-height: auto;
+    padding: 12px;
+    border-radius: var(--radius);
+  }
+
+  .cert-stats article:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
+  .cert-stats span {
+    font-size: 0.68rem;
+    line-height: 1.35;
+  }
+
+  .cert-stats strong {
+    margin-top: 6px;
+    font-size: clamp(1.15rem, 7vw, 1.55rem);
+  }
+
+  .cert-layout {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .cert-journey {
+    display: none;
+  }
+}
+
 @media (max-width: 640px) {
   .brand span:last-child {
     display: none;
@@ -2134,7 +2180,7 @@ h3 {
   }
 
   .cert-dashboard {
-    padding: 14px;
+    padding: 16px;
   }
 
   .cert-journey {
